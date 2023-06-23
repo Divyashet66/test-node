@@ -26,7 +26,15 @@ pipeline {
               }
           }
 
-      
+          stage('SonarQube analysis') {
+        	steps{
+        		withSonarQubeEnv('sonarqube-9.7.1') { 
+			sh "npm i sonar-scanner"
+              		sh "npm run sonar"
+			sh "ls"
+    			  }
+        	}
+        }
 
 	    
 	    stage('Build Docker Image') {
