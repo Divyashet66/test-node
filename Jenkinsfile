@@ -28,7 +28,7 @@ pipeline {
 
 	          stage('SonarQube analysis') {
         	steps{
-        		withSonarQubeEnv('sonarqube-9.7.1') { 
+        		withSonarQubeEnv('SonarQube') { 
 			sh "npm i sonar-scanner"
               		sh "npm run sonar"
 			sh "ls"
