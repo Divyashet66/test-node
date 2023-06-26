@@ -28,7 +28,7 @@ pipeline {
 	    
 	stage('SonarQube analysis') {
         	steps{
-        		withSonarQubeEnv('network') { 
+        		withSonarQubeEnv('node') { 
 			sh "npm i sonar-scanner"
               		sh "npm run sonar"
 			sh "ls"
