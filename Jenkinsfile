@@ -25,6 +25,12 @@ pipeline {
                   sh 'npm install --force'
               }
           }
+
+	     stage('Test') {
+      steps {
+        sh 'npm run test'
+      }
+    }
 	    
 	stage('SonarQube analysis') {
         	steps{
