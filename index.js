@@ -18,7 +18,8 @@ app.post("/addtask", function(req, res) {
     var newTask = req.body.newtask;
     //add the new task from the post route
     task.push(newTask);
-    res.redirect("/");
+    // res.redirect("/");
+    res.status(200).redirect("/");
 });
 
 app.post("/removetask", function(req, res) {
@@ -34,7 +35,7 @@ app.post("/removetask", function(req, res) {
             task.splice(task.indexOf(completeTask[i]), 1);
         }
     }
-    res.redirect("/");
+    res.status(200).redirect("/");
 });
 
 //render the ejs and display added task, completed task
@@ -46,3 +47,5 @@ app.get("/", function(req, res) {
 app.listen(3000, function() {
     console.log("server is running on port 3000");
 });
+
+module.exports = app;
