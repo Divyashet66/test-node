@@ -4,7 +4,8 @@
   "description": "A simple to do list app ",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "sonar":"sonar-scanner"
   },
   "author": "Vanessa Ating",
   "license": "ISC",
