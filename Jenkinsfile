@@ -19,12 +19,22 @@ pipeline {
 			    	checkout scm
 		    }
 	    }
-	    stage('build') {
+	    stage('Install dependancies') {
               steps {
                   echo 'building the software'
                   sh 'npm install --force'
               }
           }
+	    
+	stage('SonarQube analysis') {
+        	steps{
+        		withSonarQubeEnv('network') { 
+			sh "npm i sonar-scanner"
+              		sh "npm run sonar"
+			sh "ls"
+    			  }
+        	}
+        }
 
 	    
 	    stage('Build Docker Image') {
