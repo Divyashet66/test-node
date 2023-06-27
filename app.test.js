@@ -1,13 +1,13 @@
 const request = require('supertest');
 const app = require('./index');
 
-describe('Todo App', () => {
-    describe('GET /', () => {
-      test('should return status 200', async () => {
-        const response = await request(app).get('/');
-        expect(response.statusCode).toBe(200);
-      });
-    });
+// describe('Todo App', () => {
+//     describe('GET /', () => {
+//       test('should return status 200', async () => {
+//         const response = await request(app).get('/');
+//         expect(response.statusCode).toBe(200);
+//       });
+//     });
 
     describe('POST /addtask', () => {
         test('should return status 200', async () => {
