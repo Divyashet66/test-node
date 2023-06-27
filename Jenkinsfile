@@ -27,8 +27,19 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'npm test & sleep 3'
-		// sh 'sleep 1'
+                // Run tests with Jest and generate code coverage report
+        sh 'npm test & sleep 3'
+        
+        // Rename coverage reports to match SonarQube expectations
+        sh 'mv coverage/lcov-report lcov-report'
+
+        // Publish code coverage report
+        step([
+          $class: 'JacocoPublisher',
+          execPattern: 'lcov-report/**/*.xml',
+          classPattern: 'lcov-report/**/*.xml',
+          sourcePattern: 'lcov-report/**/*.xml'
+        ])
             }
         }
 
